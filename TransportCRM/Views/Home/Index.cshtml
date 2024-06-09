@@ -1,0 +1,14 @@
+﻿
+@{
+    var pri = ViewBag.Test as ActivePage;
+    ViewData["Title"] = "Главная";
+}
+
+<body style="background-image:url(@pri?.BackgroundUrl)">
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать</h1>
+    <h4>Данная информационная система, предназначена для управления грузоперевозками.</h4>
+    <p>Войдите в аккаунт или зарегистрируйтесь, для продолжения работы.</p>
+    <h1>@pri?.Message</h1>
+</div>
+</body>

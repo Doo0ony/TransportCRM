@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TransportCRM.Models.Truck>
+
+@{
+    ViewData["Title"] = "Авто";
+}
+
+<h1>Автомобиль</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Добавить автомобиль</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Максимальная грузоподъемность
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxPayload)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TruckId">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.TruckId">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.TruckId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

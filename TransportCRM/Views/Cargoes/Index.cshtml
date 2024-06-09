@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TransportCRM.Models.Cargo>
+
+@{
+    ViewData["Title"] = "Груз";
+}
+
+<h1>Грузы</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Создать новый</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Описание
+            </th>
+            <th>
+                Место погрузки
+            </th>
+            <th>
+                Место назначения
+            </th>
+            <th>
+                Вес груза
+            </th>
+            <th>
+                Объем груза
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volume)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CargoId">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.CargoId">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.CargoId">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
